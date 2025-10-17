@@ -16,9 +16,18 @@ jobs:
               run: bun install
             - name: Run with different seeds
               run: |
+                echo "Testing with no seed..."
                 bun run random-number-generator.js
+                echo ""
+
+                echo "Testing with string seed..."
                 bun run random-number-generator.js "test-seed"
+                echo ""
+
+                echo "Testing with numeric seed"
                 bun run random-number-generator.js 1906
+                echo ""
+
             - name: Upload Artifact
               uses: actions/upload-artifact@v4
               with:
@@ -56,13 +65,20 @@ jobs:
                 name: random-number-generator-executables
             - name: Make linux binary executable
               run: chmod +x random-number-generator-linux
-            - name: Install Dependencies
-              run: bun install
             - name: multi line commands
               run: |
+                echo "Testing with no seed..."
                 ./random-number-generator-linux
+                echo ""
+
+                echo "Testing with string seed"
                 ./random-number-generator-linux "test-seed"
+                echo ""
+
+                echo "Testing with numeric seed"
                 ./random-number-generator-linux 1906
+                echo ""
+                
             - name: Upload Report
               uses: actions/upload-artifact@v4
               with:
