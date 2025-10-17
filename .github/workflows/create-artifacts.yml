@@ -9,7 +9,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
             - name: Setup
-              uses: oven-sh@setup-bun@v2
+              uses: oven-sh/setup-bun@v2
               with:
                 bun-version: latest
             - name: Install Dependencies
@@ -66,4 +66,5 @@ jobs:
               with:
                 name: linux-test-report
                 path: report.txt
+
 
